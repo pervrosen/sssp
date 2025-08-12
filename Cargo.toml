@@ -1,0 +1,51 @@
+[package]
+name = "fast-sssp"
+version = "0.1.0"
+edition = "2021"
+authors = ["pervrosen@github.com"]
+description = "Fast Single-Source Shortest Path algorithm implementation breaking the O(m log n) barrier"
+license = "MIT"
+keywords = ["graph", "shortest-path", "dijkstra", "algorithms"]
+categories = ["algorithms", "data-structures"]
+
+[dependencies]
+# Performance optimizations
+smallvec = "1.11"
+arrayvec = "0.7"
+bumpalo = "3.14"
+# SIMD optimizations
+wide = "0.7"
+# Memory mapping for large graphs
+memmap2 = "0.9"
+serde = { version = "1.0", features = ["derive"] }
+bincode = "2.0.1"
+
+[dev-dependencies]
+criterion = "0.7"
+
+[[bench]]
+name = "sssp_benchmark"
+path = "bench/benchmark_file.rs"
+harness = false
+
+[lib]
+name = "fast_sssp"
+path = "src/lib.rs"
+
+[[bin]]
+name = "demo"
+path = "src/main.rs"
+
+[[bin]]
+name = "usage_example"
+path = "tests/usage_example.rs"
+
+[[bin]]
+name = "shortest_path_example"
+path = "examples/shortest_path_example.rs"
+
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
