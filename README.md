@@ -79,15 +79,7 @@ Run benchmarks to see the performance improvement:
 cargo bench
 ```
 
-Example results on different graph types:
-
-| Graph Size | Fast SSSP | Dijkstra | Speedup |
-|------------|-----------|----------|---------|
-| 1K vertices, 3K edges | 2.1ms | 3.8ms | 1.8x |
-| 2K vertices, 8K edges | 4.7ms | 9.2ms | 2.0x |
-| 5K vertices, 15K edges | 12ms | 28ms | 2.3x |
-
-*Performance gains are most significant on sparse graphs where m = O(n)*
+Please see results.md instead
 
 ## Advanced Usage
 
